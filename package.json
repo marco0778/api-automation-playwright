@@ -1,0 +1,22 @@
+{
+  "name": "api-automation-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marco0778/api-automation-playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marco0778/api-automation-playwright/issues"
+  },
+  "homepage": "https://github.com/marco0778/api-automation-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1"
+  }
+}
