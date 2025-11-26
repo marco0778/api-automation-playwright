@@ -1,6 +1,6 @@
-const {request} = require('@playwright/test');
+const { request } = require('@playwright/test');
 
-exports.baseURL = async ()=>{
+exports.baseURL = async () => {
     const apiContext = await request.newContext({
         baseURL: 'https://restful-booker.herokuapp.com'
     });

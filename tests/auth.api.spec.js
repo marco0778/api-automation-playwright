@@ -1,12 +1,12 @@
 const { expect, test } = require("@playwright/test");
 const { request } = require("https");
 // const { getToken } = require("../utils/tokenManager");
-const {baseURL} = require("../utils/apiClient");
+const { baseURL } = require("../utils/apiClient");
 
 test('Success to get token', async () => {
-    const testToken = await baseURL();
+    const url = await baseURL();
 
-    const res = await testToken.post('/auth', {
+    const res = await url.post('/auth', {
         data: {
             username: "admin",
             password: "password123"
