@@ -1,6 +1,6 @@
 const {baseURL} = require('../utils/apiClient');
 
-exports.getBookingid = async () =>{
+exports.getAllBookingId = async () =>{
     const url = await baseURL();
 
     const response = await url.get('/booking');
@@ -17,6 +17,7 @@ exports.getSpecificBookingid = async (bookingId) =>{
 
     const response = await url.get(`/booking/${bookingId}`);
 
-    const body_status = await response.status();
-    return body_status;
+    const body = await response.status();
+    console.log(`Status of Get By Booking ID is : ${body}`);
+    return response;
 }

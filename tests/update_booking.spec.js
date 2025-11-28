@@ -1,12 +1,12 @@
 const { test, expect } = require('@playwright/test');
 const { baseURL } = require('../utils/apiClient');
 const {getToken} = require('../utils/tokenManager');
-const {getBookingid} = require('../utils/apiHelper');
+const {getAllBookingId} = require('../utils/apiHelper');
 
 test(`Test Update Booking`, async () => {
     const url = await baseURL();
     const token = await getToken();
-    const randomBookingid = await getBookingid();
+    const randomBookingid = await getAllBookingId();
 
     const response = await url.put(`/booking/${randomBookingid}`,
         {

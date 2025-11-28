@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const { baseURL } = require('../utils/apiClient');
-const {getSpecificBookingid, getBookingid} = require('../utils/apiHelper');
+const {getSpecificBookingid, getAllBookingId} = require('../utils/apiHelper');
 const {getToken} = require('../utils/tokenManager');
 
 test(`Test create booking and delete`, async () => {
@@ -31,7 +31,8 @@ test(`Test create booking and delete`, async () => {
     const getCreateid = body.bookingid;
     // console.log(getCreateid);
     const getDetailBookingId = await getSpecificBookingid(getCreateid);
-    console.log(`Status after create : ${getDetailBookingId}`);
+    const objectGetDetailBookingId = {getDetailBookingId};
+    console.log(`Content of booking ID ${getCreateid} as following: ${objectGetDetailBookingId}`);
     
     const response_delete = await url.delete(`booking/${getCreateid}`,{
         headers : {
@@ -41,10 +42,12 @@ test(`Test create booking and delete`, async () => {
 
     const body_delete_status = await response_delete.status();
     const body_delete_statusText = await response_delete.statusText();
-    console.log(`${body_delete_status} : ${body_delete_statusText}`);
-
-    const getDetailBookingIdafterDelete = await getSpecificBookingid(getCreateid);
-
+    console.log(`Status of deletion is : ${body_delete_status} with text ${body_delete_statusText}`);
+    await expect(body_delete_status).toBe(201);
     
-    expect(getDetailBookingIdafterDelete).toBe(404);
+    const getDetailBookingIdafterDeletion = await getSpecificBookingid(getCreateid);
+    // console.log(getDetailBookingIdafterDeletion.status());
+    await expect(getDetailBookingIdafterDeletion.status()).toBe(404);
+
+
 })
