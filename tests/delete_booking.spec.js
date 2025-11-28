@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const { baseURL } = require('../utils/apiClient');
-const { getBookingById, getAllBookingId } = require('../utils/apiHelper');
+const { getBookingById, getAnyBookingId } = require('../utils/apiHelper');
 const { getToken } = require('../utils/tokenManager');
 
 test(`Test create booking and delete`, async () => {

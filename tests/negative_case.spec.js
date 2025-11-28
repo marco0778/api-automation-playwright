@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { baseURL } = require('../utils/apiClient');
 const { getToken } = require('../utils/tokenManager');
-const { getAllBookingId } = require('../utils/apiHelper');
+const { getAnyBookingId } = require('../utils/apiHelper');
 
 test(`Wrong Credentials (Auth)`, async () => {
     const url = await baseURL();
@@ -48,7 +48,7 @@ test(`Create Booking with Missing Field of totalprice`, async () => {
 
 test(`Update Booking Without Token`, async () => {
     const url = await baseURL();
-    const randomBookingid = await getAllBookingId();
+    const randomBookingid = await getAnyBookingId();
 
     const response = await url.put(`/booking/${randomBookingid}`,
         {
@@ -74,7 +74,7 @@ test(`Update Booking Without Token`, async () => {
 
 test(`Update Booking With Wrong Token`, async () => {
     const url = await baseURL();
-    const randomBookingid = await getAllBookingId();
+    const randomBookingid = await getAnyBookingId();
 
     const response = await url.put(`/booking/${randomBookingid}`,
         {
@@ -104,7 +104,7 @@ test(`Update Booking With Wrong Token`, async () => {
 
 test(`Delete Booking Without Token`, async () => {
     const url = await baseURL();
-    const randomBookingid = await getAllBookingId();
+    const randomBookingid = await getAnyBookingId();
 
     const response_delete = await url.delete(`booking/${randomBookingid}`, {
         headers: {

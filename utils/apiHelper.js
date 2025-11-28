@@ -1,6 +1,6 @@
 const { baseURL } = require('../utils/apiClient');
 
-exports.getAllBookingId = async () => {
+exports.getAnyBookingId = async () => {
     const url = await baseURL();
 
     const response = await url.get('/booking');
