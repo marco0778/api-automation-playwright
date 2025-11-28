@@ -1,6 +1,6 @@
-const {baseURL} = require('../utils/apiClient');
+const { baseURL } = require('../utils/apiClient');
 
-exports.getAllBookingId = async () =>{
+exports.getAllBookingId = async () => {
     const url = await baseURL();
 
     const response = await url.get('/booking');
@@ -12,7 +12,7 @@ exports.getAllBookingId = async () =>{
     return body[randomIndex].bookingid;
 }
 
-exports.getSpecificBookingid = async (bookingId) =>{
+exports.getBookingById = async (bookingId) => {
     const url = await baseURL();
 
     const response = await url.get(`/booking/${bookingId}`);
