@@ -32,11 +32,8 @@ api-automation-playwright/
 │   ├── create_booking.spec.js
 │   ├── update_booking.spec.js
 │   ├── delete_booking.spec.js
-│   ├── negative/
-│   │   ├── auth_negative.spec.js
-│   │   ├── update_negative.spec.js
-│   │   ├── delete_negative.spec.js
-│   └── e2e_booking_flow.spec.js       <-- Full end-to-end test
+│   ├── negative_case.spec.js
+│   └── e2e_booking_flow.spec.js       <-- Full end-to-end test  
 │
 ├── utils/
 │   ├── apiClient.js                   <-- Base URL + request context
